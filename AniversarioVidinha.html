@@ -1,0 +1,140 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário!</title>
+    <style>
+        body {
+            background-color: #3f90b7;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5rem;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .foto-container {
+            position: relative;
+            display: inline-block;
+            margin-top: 100px;
+        }
+        .foto-central {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 4px solid white;
+        }
+        .imagem-decorativa {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 3px solid white;
+        }
+        .superior-esquerda { top: -60px; left: -60px; }
+        .superior-direita { top: -60px; right: -60px; }
+        .inferior-esquerda { bottom: -60px; left: -60px; }
+        .inferior-direita { bottom: -60px; right: -60px; }
+
+        /* Container dos balões */
+        .baloes-container {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Estilização dos balões */
+        .balao {
+            width: 70px; /* Balões maiores */
+            height: 100px;
+            background-color: red;
+            border-radius: 50% 50% 60% 60%;
+            position: relative;
+            animation: flutuar 3s ease-in-out infinite alternate;
+        }
+
+        .balao::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            width: 2px;
+            height: 25px;
+            background-color: white;
+        }
+
+        /* Animação dos balões */
+        @keyframes flutuar {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-25px); }
+        }
+
+        /* Diferentes cores para os balões e tempos de animação variados */
+        .balao:nth-child(1) { background-color: red; animation-duration: 3s; }
+        .balao:nth-child(2) { background-color: blue; animation-duration: 2.7s; }
+        .balao:nth-child(3) { background-color: yellow; animation-duration: 3.5s; }
+        .balao:nth-child(4) { background-color: green; animation-duration: 3.2s; }
+        .balao:nth-child(5) { background-color: pink; animation-duration: 2.9s; }
+        .balao:nth-child(6) { background-color: purple; animation-duration: 3.3s; }
+        .balao:nth-child(7) { background-color: orange; animation-duration: 3.1s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feliz Aniversário, Vidinha! 🎂</h1>
+        <div class="foto-container">
+            <img src="img/fotoVidinha.png" alt="Foto da aniversariante" class="foto-central">
+            <img src="img/cavalo.png" class="imagem-decorativa superior-esquerda">
+            <img src="img/Sem título.png" class="imagem-decorativa superior-direita">
+            <img src="img/foto.png" class="imagem-decorativa inferior-esquerda">
+            <img src="img/foto2.png" class="imagem-decorativa inferior-direita">
+        </div>
+        <div class="baloes-container">
+            <div class="balao"></div>
+            <div class="balao"></div>
+            <div class="balao"></div>
+            <div class="balao"></div>
+            <div class="balao"></div>
+            <div class="balao"></div>
+            <div class="balao"></div>
+        </div>
+    </div>
+    <button onclick="tocarMusica()" style="position: absolute; top: 10px; right: 10px; padding: 10px; background: white; border: none; border-radius: 5px; cursor: pointer;">
+        🎵 Tocar Música
+    </button>
+    
+    <audio id="musica" loop>
+        <source src="img/The Weeknd Sings Happy Birthday.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+    
+    <script>
+        function tocarMusica() {
+            let audio = document.getElementById("musica");
+            audio.play();
+        }
+    </script>
+</body>
+</html>
